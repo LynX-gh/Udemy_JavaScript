@@ -194,7 +194,6 @@ btnLoan.addEventListener('click', function (e) {
 
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
-  inputClosePin.value = inputCloseUsername.value = 0;
   if (
     inputCloseUsername.value === currentAccount.username &&
     Number(inputClosePin.value) === currentAccount.pin
@@ -205,12 +204,13 @@ btnClose.addEventListener('click', function (e) {
     accounts.splice(index, 1);
     containerApp.style.opacity = 0;
   }
+  inputClosePin.value = inputCloseUsername.value = '';
 });
 
 let sorted = false;
 btnSort.addEventListener('click', function (e) {
   e.preventDefault();
-  sorted != sorted;
+  sorted = !sorted;
   displayMovements(currentAccount, sorted);
 });
 
