@@ -34,6 +34,7 @@ const account4 = {
 };
 
 const accounts = [account1, account2, account3, account4];
+let sorted = false;
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -124,7 +125,7 @@ const updateUI = async function () {
   await sleep(8);
 
   // Update Display
-  displayMovements(currentAccount);
+  displayMovements(currentAccount, sorted);
   printBalance(currentAccount);
   printSummary(currentAccount);
 
@@ -207,7 +208,6 @@ btnClose.addEventListener('click', function (e) {
   inputClosePin.value = inputCloseUsername.value = '';
 });
 
-let sorted = false;
 btnSort.addEventListener('click', function (e) {
   e.preventDefault();
   sorted = !sorted;
